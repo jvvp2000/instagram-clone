@@ -1,8 +1,8 @@
 import React from "react";
-import { Text, View } from "react-native";
-import { Button } from "react-native-web";
+import { View, Button } from "react-native";
+// import { Button } from "react-native-web";
 
-export const Landing = ({ navigation }) => {
+export default function Landing({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: "center" }}>
       <Button
@@ -12,4 +12,4 @@ export const Landing = ({ navigation }) => {
       <Button title="Login" onPress={() => navigation.navigate("Login")} />
     </View>
   );
-};
+}

@@ -1,21 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import firebase from "firebase/compat/app";
+import "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
-import LandingScreen from './components/auth/Landing';
+const firebaseConfig = {
+  apiKey: "AIzaSyDZl7l7bLpOE5mR2vFuf74AwA57y9_URBo",
+  authDomain: "instagram-dev-838f0.firebaseapp.com",
+  projectId: "instagram-dev-838f0",
+  storageBucket: "instagram-dev-838f0.appspot.com",
+  messagingSenderId: "407634068545",
+  appId: "1:407634068545:web:fdfb6f139d30ca9ce2f2c0",
+  measurementId: "G-1XBL9FFYKV",
+};
 
-const Stack = createStackNavigator();
+if (firebase.app.lengh === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import LandingScreen from "./src/screens/auth/Landing";
+import RegisterScreen from "./src/screens/auth/Register";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Landing">
-        <Stack.Screen name="Landing" component={LandingScreen} option={{ headerShown: false }} />
+      <Stack.Navigator
+        initialRouteName="Landing"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Landing" component={LandingScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
