@@ -7,7 +7,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDZl7l7bLpOE5mR2vFuf74AwA57y9_URBo",
+  apiKey: process.env.API_KEY,
   authDomain: "instagram-dev-838f0.firebaseapp.com",
   projectId: "instagram-dev-838f0",
   storageBucket: "instagram-dev-838f0.appspot.com",
@@ -16,9 +16,7 @@ const firebaseConfig = {
   measurementId: "G-1XBL9FFYKV",
 };
 
-if (firebase.app.lengh === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
+firebase.initializeApp(firebaseConfig);
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";

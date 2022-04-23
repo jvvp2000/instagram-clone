@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { View, Button, TextInput } from "react-native";
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
+import "firebase/compat/auth";
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export class Register extends Component {
   constructor(props) {
